@@ -5,24 +5,13 @@
 </head>
 <body>
 
-<script src="gui/gui.js"></script>
-<script src="gui/objects/button.js"></script>
+<script src="keyboardListener.js"></script>
 
 <canvas id="window" width="1280px" height="720px" style="border:1px solid #000000;">
 Your browser does not support the HTML5 canvas tag.
 </canvas>
 
 <script>
-function makeGui(a){
-	var button = new Button();
-	button.name = "hi";
-	a.objects.push(button);
-	var button = new Button();
-	button.name = "1";
-	button.position_x = 300;
-	a.objects.push(button);
-	a.addMouseListener();
-}
 /*
 ctx.font = "20px Arial";
 ctx.fillStyle = "black";
@@ -31,8 +20,10 @@ ctx.fillText(txt, 20, 20);
 */
 var canvas = document.getElementById("window");
 var ctx = canvas.getContext("2d");
-var gui = new GUI();
-makeGui(gui);
+
+var kl = new KeyboardListener1();
+kl.createListener();
+
 //start loop
 setInterval(run, 33);
 function run(){
@@ -40,12 +31,15 @@ function run(){
 	ctx.fillStyle = "white";
 	ctx.fillRect(0,0,1280,720);
 	
-	//get gui action
-	if(gui.getAction() == "hi"){
-		gui.objects.splice(0, 1);
+	var txt = "";
+	for(i=0; i<kl.key.length; i++){
+		if (kl.key_state[i] == true){
+			txt += kl.key[i] + " ";
+		}
 	}
-	//draw gui
-	gui.draw();
+	ctx.font = "20px Arial";
+	ctx.fillStyle = "black";
+	ctx.fillText(txt, 20, 20);
 	
 }
 </script>

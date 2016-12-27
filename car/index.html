@@ -7,6 +7,8 @@
 
 <script src="gui/gui.js"></script>
 <script src="gui/objects/button.js"></script>
+<script src="keyboardListener.js"></script>
+<script src="car.js"></script>
 
 <canvas id="window" width="1280px" height="720px" style="border:1px solid #000000;">
 Your browser does not support the HTML5 canvas tag.
@@ -33,6 +35,14 @@ var canvas = document.getElementById("window");
 var ctx = canvas.getContext("2d");
 var gui = new GUI();
 makeGui(gui);
+
+var kl = new KeyboardListener1();
+kl.createListener();
+
+var car = new Car();
+car.x = 100;
+car.y = 200;
+
 //start loop
 setInterval(run, 33);
 function run(){
@@ -46,6 +56,9 @@ function run(){
 	}
 	//draw gui
 	gui.draw();
+	
+	car.move();
+	car.draw();
 	
 }
 </script>
