@@ -1,67 +1,94 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>GUI</title>
-</head>
+	<head>
+		<title>GUI</title>
+		<!-- libs -->
+    <script src="lib/prototype-1.6.0.2.js"></script>
+
+		<!-- box2djs -->
+    <script src='js/box2d/common/b2Settings.js'></script>
+    <script src='js/box2d/common/math/b2Vec2.js'></script>
+    <script src='js/box2d/common/math/b2Mat22.js'></script>
+    <script src='js/box2d/common/math/b2Math.js'></script>
+    <script src='js/box2d/collision/b2AABB.js'></script>
+    <script src='js/box2d/collision/b2Bound.js'></script>
+    <script src='js/box2d/collision/b2BoundValues.js'></script>
+    <script src='js/box2d/collision/b2Pair.js'></script>
+    <script src='js/box2d/collision/b2PairCallback.js'></script>
+    <script src='js/box2d/collision/b2BufferedPair.js'></script>
+    <script src='js/box2d/collision/b2PairManager.js'></script>
+    <script src='js/box2d/collision/b2BroadPhase.js'></script>
+    <script src='js/box2d/collision/b2Collision.js'></script>
+    <script src='js/box2d/collision/Features.js'></script>
+    <script src='js/box2d/collision/b2ContactID.js'></script>
+    <script src='js/box2d/collision/b2ContactPoint.js'></script>
+    <script src='js/box2d/collision/b2Distance.js'></script>
+    <script src='js/box2d/collision/b2Manifold.js'></script>
+    <script src='js/box2d/collision/b2OBB.js'></script>
+    <script src='js/box2d/collision/b2Proxy.js'></script>
+    <script src='js/box2d/collision/ClipVertex.js'></script>
+    <script src='js/box2d/collision/shapes/b2Shape.js'></script>
+    <script src='js/box2d/collision/shapes/b2ShapeDef.js'></script>
+    <script src='js/box2d/collision/shapes/b2BoxDef.js'></script>
+    <script src='js/box2d/collision/shapes/b2CircleDef.js'></script>
+    <script src='js/box2d/collision/shapes/b2CircleShape.js'></script>
+    <script src='js/box2d/collision/shapes/b2MassData.js'></script>
+    <script src='js/box2d/collision/shapes/b2PolyDef.js'></script>
+    <script src='js/box2d/collision/shapes/b2PolyShape.js'></script>
+    <script src='js/box2d/dynamics/b2Body.js'></script>
+    <script src='js/box2d/dynamics/b2BodyDef.js'></script>
+    <script src='js/box2d/dynamics/b2CollisionFilter.js'></script>
+    <script src='js/box2d/dynamics/b2Island.js'></script>
+    <script src='js/box2d/dynamics/b2TimeStep.js'></script>
+    <script src='js/box2d/dynamics/contacts/b2ContactNode.js'></script>
+    <script src='js/box2d/dynamics/contacts/b2Contact.js'></script>
+    <script src='js/box2d/dynamics/contacts/b2ContactConstraint.js'></script>
+    <script src='js/box2d/dynamics/contacts/b2ContactConstraintPoint.js'></script>
+    <script src='js/box2d/dynamics/contacts/b2ContactRegister.js'></script>
+    <script src='js/box2d/dynamics/contacts/b2ContactSolver.js'></script>
+    <script src='js/box2d/dynamics/contacts/b2CircleContact.js'></script>
+    <script src='js/box2d/dynamics/contacts/b2Conservative.js'></script>
+    <script src='js/box2d/dynamics/contacts/b2NullContact.js'></script>
+    <script src='js/box2d/dynamics/contacts/b2PolyAndCircleContact.js'></script>
+    <script src='js/box2d/dynamics/contacts/b2PolyContact.js'></script>
+    <script src='js/box2d/dynamics/b2ContactManager.js'></script>
+    <script src='js/box2d/dynamics/b2World.js'></script>
+    <script src='js/box2d/dynamics/b2WorldListener.js'></script>
+    <script src='js/box2d/dynamics/joints/b2JointNode.js'></script>
+    <script src='js/box2d/dynamics/joints/b2Joint.js'></script>
+    <script src='js/box2d/dynamics/joints/b2JointDef.js'></script>
+    <script src='js/box2d/dynamics/joints/b2DistanceJoint.js'></script>
+    <script src='js/box2d/dynamics/joints/b2DistanceJointDef.js'></script>
+    <script src='js/box2d/dynamics/joints/b2Jacobian.js'></script>
+    <script src='js/box2d/dynamics/joints/b2GearJoint.js'></script>
+    <script src='js/box2d/dynamics/joints/b2GearJointDef.js'></script>
+    <script src='js/box2d/dynamics/joints/b2MouseJoint.js'></script>
+    <script src='js/box2d/dynamics/joints/b2MouseJointDef.js'></script>
+    <script src='js/box2d/dynamics/joints/b2PrismaticJoint.js'></script>
+    <script src='js/box2d/dynamics/joints/b2PrismaticJointDef.js'></script>
+    <script src='js/box2d/dynamics/joints/b2PulleyJoint.js'></script>
+    <script src='js/box2d/dynamics/joints/b2PulleyJointDef.js'></script>
+    <script src='js/box2d/dynamics/joints/b2RevoluteJoint.js'></script>
+    <script src='js/box2d/dynamics/joints/b2RevoluteJointDef.js'></script>
+	
+		<!--Gui-->
+	<script src="js/gui/gui.js"></script>
+	<script src="js/gui/objects/button.js"></script>
+		<!--Listener-->
+	<script src="js/keyboardListener.js"></script>
+		<!--Game-->
+	<script src="game/car.js"></script>
+	<script src="game/world.js"></script>
+
+	</head>
+
 <body>
 
-<script src="gui/gui.js"></script>
-<script src="gui/objects/button.js"></script>
-<script src="keyboardListener.js"></script>
-<script src="car.js"></script>
-
 <canvas id="window" width="1280px" height="720px" style="border:1px solid #000000;">
-Your browser does not support the HTML5 canvas tag.
+	Your browser does not support the HTML5 canvas tag.
 </canvas>
 
-<script>
-function makeGui(a){
-	var button = new Button();
-	button.name = "hi";
-	a.objects.push(button);
-	var button = new Button();
-	button.name = "1";
-	button.position_x = 300;
-	a.objects.push(button);
-	a.addMouseListener();
-}
-/*
-ctx.font = "20px Arial";
-ctx.fillStyle = "black";
-txt += " loop";
-ctx.fillText(txt, 20, 20);
-*/
-var canvas = document.getElementById("window");
-var ctx = canvas.getContext("2d");
-var gui = new GUI();
-makeGui(gui);
-
-var kl = new KeyboardListener1();
-kl.createListener();
-
-var car = new Car();
-car.x = 100;
-car.y = 200;
-
-//start loop
-setInterval(run, 33);
-function run(){
-	//clear canvas
-	ctx.fillStyle = "white";
-	ctx.fillRect(0,0,1280,720);
-	
-	//get gui action
-	if(gui.getAction() == "hi"){
-		gui.objects.splice(0, 1);
-	}
-	//draw gui
-	gui.draw();
-	
-	car.move();
-	car.draw();
-	
-}
-</script>
+<script src="game/main.js"></script>
 
 </body>
 </html>
