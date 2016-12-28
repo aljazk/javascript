@@ -1,7 +1,7 @@
 function World(){
 	var worldAABB = new b2AABB();
-	worldAABB.minVertex.Set(-1000, -1000);
-	worldAABB.maxVertex.Set(1000, 1000);
+	worldAABB.minVertex.Set(0, 0);
+	worldAABB.maxVertex.Set(1280, 720);
 	var gravity = new b2Vec2(0, 0);
 	var doSleep = true;
 	this.world = new b2World(worldAABB, gravity, doSleep);

@@ -24,9 +24,6 @@ kl.createListener();
 var world = new World();
 
 var car = new Car();
-car.x = 100;
-car.y = 200;
-car.resetBody();
 
 
 //start loop
