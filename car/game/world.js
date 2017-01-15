@@ -13,8 +13,8 @@ function World(){
 	circleSd.friction = 0.5;
 	var circleBd = new b2BodyDef();
 	circleBd.AddShape(circleSd);
-	circleBd.position.Set(20, 20);
-	var circleBody = this.world.CreateBody(circleBd);
+	circleBd.position.Set(50, 50);
+	this.world.CreateBody(circleBd);
 }
 
 function drawShape(shape){
@@ -60,7 +60,7 @@ function drawShape(shape){
 
 World.prototype.step = function (time = 1){
 	//time is the time that passed from last step (in seconds)
-	this.world.Step(time);
+	this.world.Step(time, 1);
 }
 
 World.prototype.draw = function (){

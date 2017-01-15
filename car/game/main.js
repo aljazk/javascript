@@ -46,7 +46,7 @@ function run(){
 	car.draw();
 	
 	world.draw();
-	world.step(eclipsed / 1000);
+	world.step(eclipsed/1000);
 	
 	eclipsed = new Date - time;
 	if (eclipsed == 0) eclipsed = 1;
